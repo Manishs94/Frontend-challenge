@@ -1,0 +1,10 @@
+{
+  "/enrollees": {
+    "target": "http://localhost:8080/enrollees",
+    "secure": false,
+    "pathRewrite": {
+      "^/enrollees": ""
+    },
+    "changeOrigin": true
+  }
+}

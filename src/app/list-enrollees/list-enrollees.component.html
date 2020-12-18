@@ -1,0 +1,43 @@
+
+<div class="container" *ngIf="enrolleesList && enrolleesList.length > 0">
+    <h2>List of Enrollees</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Index</th>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Date Of Birth</th>
+          <th>Activation Status</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let enrollee of enrolleesList; index as index">
+          <td>{{index + 1 }}</td>
+          <td>{{enrollee.id}}</td>
+          <td>{{enrollee.name}}</td>
+          <td>{{enrollee.dateOfBirth}}</td>
+          <td>
+            <h5>
+              <span class="btn btn-{{ enrollee.active ? 'success' : 'danger' }}">
+                {{ enrollee.active ? "active" : "inactive" }}
+              </span>
+            </h5>
+        </td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="navigateToEditEnrollee(enrollee.id)">
+              Update
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div *ngIf="error">
+      <p class="alert alert-danger">
+          Error communicating with backend-server
+      </p>
+  </div>
+  
